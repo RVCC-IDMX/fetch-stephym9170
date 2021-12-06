@@ -1,31 +1,34 @@
 //fetch('demo.json')
-//.then(res => { console.log(res);
+//.then(res => { 
+   // console.log(res);
     //return res.json();
 //})
 //.then(json => console.log(json))
 
-fetch('https://unsplash.it/600/400')
-.then(res = res.blob())
-.then(blob => {
-    let img = document.createElement('img');
-    img.src = URL.createObjectURL(blob);
-    document.querySelector('body').appendChild(img);
-});
+//fetch('https://unsplash.it/600/400')
+//.then(res = res.blob())
+//.then(blob => {
+    //let img = document.createElement('img');
+    //img.src = URL.createObjectURL(blob);
+    //document.querySelector('body').appendChild(img);
+//});
 
 
 
-const postSection = document.querySelector('#posts');
-const postTemplate = document.querySelector('#post-template');
+const postSection = document.querySelector("#posts");
+const postTemplate = document.querySelector
+("#post-template");
 
 getData()
 .catch(err => console.log(err));
 
 async function getData() {
-    const postStream = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const postStream = await fetch
+    ('https://jsonplaceholder.typicode.com/posts');
     const posts = await postStream.json();
     let i = 0;
 
-    const img = await fetch('https://unsplash.it/300/200')
+    //const img = await fetch('https://unsplash.it/300/200')
     //console.log(posts)
 
     posts.forEach(post => {
@@ -35,15 +38,16 @@ async function getData() {
         const body = post.body;
 
         fetch('https:unsplash.it/300/200')
-        .then(res => res/blob())
+        .then(res => res.blob())
         .then(blob => {
-            const newPost = document.importNode(postTemplate.content, true);
+            const newPost = document.importNode
+            (postTemplate.content, true);
             const postTitle = newPost.querySelector
-            ('.post_title');
+            (".post__title");
             const postBody = newPost.querySelector
-            ('.post_body');
+            (".post__body");
             const postImg = newPost.querySelector
-            ('.post_img');
+            (".post__img");
 
             postImg.src = URL.createObjectURL(blob);
             postTitle.innerText = title;
