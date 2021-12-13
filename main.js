@@ -37,7 +37,7 @@ async function getData() {
         const title = post.title;
         const body = post.body;
 
-        fetch('https:unsplash.it/300/200')
+        fetch('https://unsplash.it/300/200')
         .then(res => res.blob())
         .then(blob => {
             const newPost = document.importNode
@@ -51,7 +51,7 @@ async function getData() {
 
             postImg.src = URL.createObjectURL(blob);
             postTitle.innerText = title;
-            postBody.innterText = body;
+            postBody.innerText = body;
             postSection.appendChild(newPost);
         })
         .catch(err => console.log(err));
